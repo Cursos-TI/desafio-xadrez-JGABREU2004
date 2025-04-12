@@ -34,7 +34,7 @@ case 1:
     printf("Digite a quantidade de movimento da Torre: ");
     scanf("%d", &torre);
 
-    for (i = 0; i < torre; i++) // define o valor de i, depois a comparação e finalizando com o incremento.
+    for (i = 0; i < torre; i++) // define o valor de i, depois a comparação e finaliza com o incremento.
 {
     printf("Frente\n", i + 1); // imprime a direção do movimento.
 }
@@ -47,16 +47,28 @@ case 2:
 
     int i = 0; // definindo o valor de i.
 
-    while (i < bispo) // comparação.
+    while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
     { 
         printf("Direita / frente\n", i + 1); // imprime a direção do movimento.
         i++;
     }
     break;
 case 3:
-    printf("Teste\n");
-    break;
+    // mover a Rainha para esquerda.
 
+    printf("Digite a quantidade de movimento da Rainha: ");
+    scanf("%d", &rainha);
+
+    int i = 0; // definindo o valor de i.
+
+    do
+    {
+        printf("Esquerda\n", i + 1); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+
+    break;
 default:
     printf("Opção Invalida!");
     break;
