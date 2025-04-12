@@ -6,11 +6,15 @@
 
 int main() {
 
+    // criando as variáveis do jogo.
+
     int torre;
     int bispo;
     int rainha;
     int opcao;
     int i;
+
+    // Menu interativo.
 
     printf("### Jogo Xadrez ###\n");
     printf("\nEscolha a peça para movimentar\n");
@@ -20,32 +24,33 @@ int main() {
     printf("\nDigite a opção: ");
     scanf("%d", &opcao);
 
+    // Colocando os movimentos e loops dentro do jogo.
+
 switch (opcao)
 {
 case 1:
+    // mover a Torre para frente.
+
     printf("Digite a quantidade de movimento da Torre: ");
     scanf("%d", &torre);
 
-    // mover a Torre para frente
-    for (i = 0; i < torre; i++)
+    for (i = 0; i < torre; i++) // define o valor de i, depois a comparação e finalizando com o incremento.
 {
-    printf("Frente\n", i + 1); // imprime a direção do movimento
+    printf("Frente\n", i + 1); // imprime a direção do movimento.
 }
     break;
 case 2:
+    // mover o Bispo para diagonal (direita/frente).
+
     printf("Digite a quantidade de movimento do Bispo: ");
     scanf("%d", &bispo);
 
-    while (bispo <= 5)
+    int i = 0; // definindo o valor de i.
+
+    while (i < bispo) // comparação.
     { 
-        // mover o Bispo 5 casas para diagonal (direita/frente)
-        if (bispo >= 0) {
-        printf("Direita / frente");
-        bispo++;
-        }
-        else {
-            printf("Movimento inválido!");
-        }
+        printf("Direita / frente\n", i + 1); // imprime a direção do movimento.
+        i++;
     }
     break;
 case 3:
