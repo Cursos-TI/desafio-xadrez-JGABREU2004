@@ -8,11 +8,7 @@ int main() {
 
     // criando as variáveis do jogo.
 
-    int torre;
-    int bispo;
-    int rainha;
-    int opcao;
-    int i;
+    int torre, bispo, rainha, opcao, i;
 
     // Menu interativo.
 
@@ -31,7 +27,7 @@ switch (opcao)
 case 1:
     // mover a Torre para frente.
 
-    printf("Digite a quantidade de movimento da Torre: ");
+    printf("\nDigite a quantidade de movimento da Torre: ");
     scanf("%d", &torre);
 
     for (i = 0; i < torre; i++) // define o valor de i, depois a comparação e finaliza com o incremento.
@@ -42,24 +38,24 @@ case 1:
 case 2:
     // mover o Bispo para diagonal (direita/frente).
 
-    printf("Digite a quantidade de movimento do Bispo: ");
+    printf("\nDigite a quantidade de movimento do Bispo: ");
     scanf("%d", &bispo);
 
-    int i = 0; // definindo o valor de i.
+    i = 0; // definindo o valor de i.
 
     while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
     { 
-        printf("Direita / frente\n", i + 1); // imprime a direção do movimento.
+        printf("Direita / Frente\n", i + 1); // imprime a direção do movimento.
         i++;
     }
     break;
 case 3:
     // mover a Rainha para esquerda.
 
-    printf("Digite a quantidade de movimento da Rainha: ");
+    printf("\nDigite a quantidade de movimento da Rainha: ");
     scanf("%d", &rainha);
 
-    int i = 0; // definindo o valor de i.
+    i = 0; // definindo o valor de i.
 
     do
     {
@@ -70,7 +66,7 @@ case 3:
 
     break;
 default:
-    printf("Opção Invalida!");
+   printf("\nOpção inválida!\n"); // digitou uma opção que não consta na lista.
     break;
 }
     return 0;
