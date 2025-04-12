@@ -31,14 +31,14 @@ case 1:
 }
     break;
 case 2:
-    print("Teste\n");
+    printf("Teste\n");
     break;
 case 3:
-    print("Teste\n");
+    printf("Teste\n");
     break;
 
 default:
-    print("Opção Invalida!");
+    printf("Opção Invalida!");
     break;
 }
     return 0;
