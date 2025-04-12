@@ -77,9 +77,9 @@ case 2: // movimento do Bispo para diagonal.
 
     printf("\n** Direção do movimento **\n");
     printf("A. Direita/Baixo\n");
-    printf("B. Esquerda/Baixo\n");
-    printf("C. Direita/Cima\n");
-    printf("D. Esquerda/Cima\n");
+    printf("F. Esquerda/Baixo\n");
+    printf("G. Direita/Cima\n");
+    printf("H. Esquerda/Cima\n");
     printf("\nDigite a direção: ");
     scanf(" %c", &direcao);
     printf("\nDigite a quantidade de movimento do Bispo: ");
@@ -97,8 +97,8 @@ case 2: // movimento do Bispo para diagonal.
             i++;
     }
     break;
-    case 'B':
-    case 'b':
+    case 'F':
+    case 'f':
         i = 0; // definindo o valor de i.
 
         while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
@@ -107,8 +107,8 @@ case 2: // movimento do Bispo para diagonal.
             i++;
     }
     break;
-    case 'C':
-    case 'c':
+    case 'G':
+    case 'g':
         i = 0; // definindo o valor de i.
 
         while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
@@ -117,8 +117,8 @@ case 2: // movimento do Bispo para diagonal.
             i++;
     }
     break;
-    case 'D':
-    case 'd':
+    case 'H':
+    case 'h':
         i = 0; // definindo o valor de i.
 
         while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
@@ -132,22 +132,118 @@ case 2: // movimento do Bispo para diagonal.
     break;
     }
 break;
-case 3:
-    // movimento da Rainha.
+case 3: // movimento da Rainha.
 
+    printf("\n** Direção do movimento **\n");
+    printf("D. Direita\n");
+    printf("E. Esquerda\n");
+    printf("C. Cima\n");
+    printf("B. Baixo\n");
+    printf("A. Direita/Baixo\n");
+    printf("F. Esquerda/Baixo\n");
+    printf("G. Direita/Cima\n");
+    printf("H. Esquerda/Cima\n");
+    printf("\nDigite a direção: ");
+    scanf(" %c", &direcao);
     printf("\nDigite a quantidade de movimento da Rainha: ");
-    scanf("%d", &rainha);
+    scanf("%d", &rainha);    
 
+    switch (direcao) // direção e a quantidade de movimento da Rainha.
+    {
+    case 'D':
+    case 'd':
     i = 0; // definindo o valor de i.
-
+    do
+    {
+        printf("Direita\n"); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    break;
+    case 'D':
+    case 'd':
+    i = 0; // definindo o valor de i.
+    do
+    {
+        printf("Direita\n"); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    break;
+    case 'E':
+    case 'e':
+    i = 0; // definindo o valor de i.
     do
     {
         printf("Esquerda\n"); // executa a comparação pelo menos uma vez.
         i++;
     } 
     while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
-
     break;
+    case 'C':
+    case 'c':
+    i = 0; // definindo o valor de i.
+    do
+    {
+        printf("Cima\n"); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    break;    
+    case 'B':
+    case 'b':
+    i = 0; // definindo o valor de i.
+    do
+    {
+        printf("Baixo\n"); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    break;
+    case 'A':
+    case 'a':
+    i = 0; // definindo o valor de i.
+    do
+    {
+        printf("Direita/Baixo\n"); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    break;
+    case 'F':
+    case 'f':
+    i = 0; // definindo o valor de i.
+    do
+    {
+        printf("Esquerda/Baixo\n"); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    break;
+    case 'G':
+    case 'g':
+    i = 0; // definindo o valor de i.
+    do
+    {
+        printf("Direita/Cima\n"); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    break;
+    case 'H':
+    case 'h':
+    i = 0; // definindo o valor de i.
+    do
+    {
+        printf("Esquerda/Cima\n"); // executa a comparação pelo menos uma vez.
+        i++;
+    } 
+    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    break;
+    default:
+        printf("Direção inválida\n");
+    break;
+    }    
 case 4:
 
     // movimento do Cavalo em L.
