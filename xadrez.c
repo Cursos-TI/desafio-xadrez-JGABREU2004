@@ -8,7 +8,8 @@ int main() {
 
     // criando as variáveis do jogo.
 
-    int torre, bispo, rainha, opcao, i;
+    int torre, bispo, rainha, cavalo;
+    int opcao, i;
     char direcao;
 
     // Menu interativo.
@@ -160,16 +161,6 @@ case 3: // movimento da Rainha.
     } 
     while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
     break;
-    case 'D':
-    case 'd':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Direita\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
-    break;
     case 'E':
     case 'e':
     i = 0; // definindo o valor de i.
@@ -243,15 +234,29 @@ case 3: // movimento da Rainha.
     default:
         printf("Direção inválida\n");
     break;
-    }    
-case 4:
+    }
+break;
+case 4: // movimento em L do cavalo.
 
-    // movimento do Cavalo em L.
+    printf("\n** Direção do movimento **\n");
+    printf("D. Cima/Direita\n");
+    printf("E. Cima/Esquerda\n");
+    printf("C. Esquerda/Cima\n");
+    printf("B. Esquerda/Baixo\n");
+    printf("A. Direita/Cima\n");
+    printf("F. Direita/Baixo\n");
+    printf("G. Baixo/Direita\n");
+    printf("H. Baixo/Esquerda\n");
+    printf("\nDigite a direção do movimento em L: ");
+    scanf(" %c", &direcao);
 
-    printf("Movimento do Cavalo em L\n");
+    cavalo = 1; // flag para controlar o movimento em L.
 
-    int cavalo = 1; // flag para controlar o movimento em L
-
+    switch (direcao) // direção e a quantidade de movimento da Rainha.
+    {
+    case 'D':
+    case 'd':
+        printf("\nMovimento do Cavalo em L\n");
     while (cavalo--)
     {
         for (i = 0; i < 2; i++)
@@ -261,6 +266,95 @@ case 4:
         printf("Direita\n"); // imprime a direção do movimento 1 vez.        
     } 
     break;
+    case 'E':
+    case 'e':
+    printf("\nMovimento do Cavalo em L\n");
+    while (cavalo--)
+    {
+        for (i = 0; i < 2; i++)
+        {
+            printf("Cima\n"); // imprime a direção do movimento 2 vezes.
+        }
+        printf("Esquerda\n"); // imprime a direção do movimento 1 vez.        
+    } 
+    break;
+    case 'C':
+    case 'c':
+    printf("\nMovimento do Cavalo em L\n");
+    while (cavalo--)
+    {
+        for (i = 0; i < 2; i++)
+        {
+            printf("Esquerda\n"); // imprime a direção do movimento 2 vezes.
+        }
+        printf("Cima\n"); // imprime a direção do movimento 1 vez.        
+    } 
+    break;
+    case 'B':
+    case 'b':
+    printf("\nMovimento do Cavalo em L\n");
+    while (cavalo--)
+    {
+        for (i = 0; i < 2; i++)
+        {
+            printf("Esquerda\n"); // imprime a direção do movimento 2 vezes.
+        }
+        printf("Baixo\n"); // imprime a direção do movimento 1 vez.        
+    } 
+    break;
+    case 'A':
+    case 'a':
+    printf("\nMovimento do Cavalo em L\n");
+    while (cavalo--)
+    {
+        for (i = 0; i < 2; i++)
+        {
+            printf("Direita\n"); // imprime a direção do movimento 2 vezes.
+        }
+        printf("Cima\n"); // imprime a direção do movimento 1 vez.        
+    } 
+    break;
+    case 'F':
+    case 'f':
+    printf("\nMovimento do Cavalo em L\n");
+    while (cavalo--)
+    {
+        for (i = 0; i < 2; i++)
+        {
+            printf("Direita\n"); // imprime a direção do movimento 2 vezes.
+        }
+        printf("Baixo\n"); // imprime a direção do movimento 1 vez.        
+    } 
+    break;
+    case 'G':
+    case 'g':
+    printf("\nMovimento do Cavalo em L\n");
+    while (cavalo--)
+    {
+        for (i = 0; i < 2; i++)
+        {
+            printf("Baixo\n"); // imprime a direção do movimento 2 vezes.
+        }
+        printf("Direita\n"); // imprime a direção do movimento 1 vez.        
+    } 
+    break;
+    case 'H':
+    case 'h':
+    printf("\nMovimento do Cavalo em L\n");
+    while (cavalo--)
+    {
+        for (i = 0; i < 2; i++)
+        {
+            printf("Baixo\n"); // imprime a direção do movimento 2 vezes.
+        }
+        printf("Esquerda\n"); // imprime a direção do movimento 1 vez.        
+    } 
+    break;
+    default:
+        printf("Direção inválida\n"); // Movimento inexistente.
+    break;
+    }
+break;
 default:
    printf("\nOpção inválida!\n"); // digitou uma opção que não consta na lista.
     break;
