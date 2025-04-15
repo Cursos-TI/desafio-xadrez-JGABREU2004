@@ -1,8 +1,69 @@
 #include <stdio.h>
 
 // Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+
+void direita(int casas)
+{
+    if (casas > 0)
+    { 
+        printf("Direita \n");
+        direita(casas - 1);
+    }
+}
+void esquerda(int casas)
+{
+    if (casas > 0)
+    { 
+        printf("Esquerda \n");
+        esquerda(casas - 1);
+    }
+}
+void baixo(int casas)
+{
+    if (casas > 0)
+    { 
+        printf("Baixo \n");
+        baixo(casas - 1);
+    }
+}
+void cima(int casas)
+{
+    if (casas > 0)
+    { 
+        printf("Cima \n");
+        cima(casas - 1);
+    }
+}
+void direitacima(int casas)
+{
+    if (casas > 0)
+    { 
+        printf("Direita / Cima \n");
+        direitacima(casas - 1);
+    }
+}void esquerdacima(int casas)
+{
+    if (casas > 0)
+    { 
+        printf("Esquerda / Cima \n");
+        esquerdacima(casas - 1);
+    }
+}void direitabaixo(int casas)
+{
+    if (casas > 0)
+    { 
+        printf("Direita / Baixo \n");
+        direitabaixo(casas - 1);
+    }
+}void esquerdabaixo(int casas)
+{
+    if (casas > 0)
+    { 
+        printf("Esquerda / Baixo \n");
+        esquerdabaixo(casas - 1);
+    }
+}
 
 int main() {
 
@@ -43,31 +104,19 @@ case 1: // movimento da Torre.
     {
     case 'D':
     case 'd':
-        for (i = 0; i < torre; i++) // define o valor de i, depois a comparação e finaliza com o incremento.
-    {
-            printf("Direita\n"); // imprime o movimento para direita.
-    }
+        direita(torre); // define a direção da Torre através da recursividade.
     break;
     case 'E':
     case 'e':
-        for (i = 0; i < torre; i++) // define o valor de i, depois a comparação e finaliza com o incremento.
-    {
-            printf("Esquerda\n"); // imprime o movimento para esquerda.
-    }
+        esquerda(torre); // define a direção/movimento da Torre através da recursividade.
     break;
     case 'C':
     case 'c':
-        for (i = 0; i < torre; i++) // define o valor de i, depois a comparação e finaliza com o incremento.
-    {
-            printf("Cima\n"); // imprime o movimento para cima.
-    }
+        cima(torre); // define a direção/movimento da Torre através da recursividade.
     break;
     case 'B':
     case 'b':
-        for (i = 0; i < torre; i++) // define o valor de i, depois a comparação e finaliza com o incremento.
-    {
-            printf("Baixo\n"); // imprime o movimento para baixo.
-    }
+        baixo(torre); // define a direção/movimento da Torre através da recursividade.
     break;
     default:
         printf("Direção inválida\n");
@@ -153,84 +202,35 @@ case 3: // movimento da Rainha.
     {
     case 'D':
     case 'd':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Direita\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    direita(rainha); // define a direção da Rainha através da recursividade.
     break;
     case 'E':
     case 'e':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Esquerda\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    esquerda(rainha); // define a direção da Rainha através da recursividade.
     break;
     case 'C':
     case 'c':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Cima\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    cima(rainha); // define a direção da Rainha através da recursividade.
     break;    
     case 'B':
     case 'b':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Baixo\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    baixo(rainha); // define a direção da Rainha através da recursividade.
     break;
     case 'A':
     case 'a':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Direita/Baixo\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    direitabaixo(rainha); // define a direção da Rainha através da recursividade.
     break;
     case 'F':
     case 'f':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Esquerda/Baixo\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    esquerdabaixo(rainha); // define a direção da Rainha através da recursividade.
     break;
     case 'G':
     case 'g':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Direita/Cima\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
+    direitacima(rainha); // define a direção da Rainha através da recursividade.
     break;
     case 'H':
     case 'h':
-    i = 0; // definindo o valor de i.
-    do
-    {
-        printf("Esquerda/Cima\n"); // executa a comparação pelo menos uma vez.
-        i++;
-    } 
-    while (i < rainha); // comparação, quando a condição for falsa finaliza o loop.
-    break;
+    esquerdacima(rainha); // define a direção da Rainha através da recursividade.
     default:
         printf("Direção inválida\n");
     break;
