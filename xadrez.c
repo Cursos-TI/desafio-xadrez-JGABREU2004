@@ -3,67 +3,48 @@
 // Desafio de Xadrez - MateCheck
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-void direita(int casas)
-{
-    if (casas > 0)
-    { 
-        printf("Direita \n");
-        direita(casas - 1);
+void mover(int casas, char direcao) {
+    int i;
+    for (i = 0; i < casas; i++) {
+        switch (direcao) {
+            case 'D':
+            case 'd':
+                printf("Direita\n");
+            break;
+            case 'E':
+            case 'e':
+                printf("Esquerda\n");
+            break;  
+            case 'C':
+            case 'c':
+                printf("Cima\n");
+            break;  
+            case 'B':
+            case 'b':
+                printf("Baixo\n");
+            break;  
+            case 'A':
+            case 'a':
+                printf("Direia / Baixo\n");
+            break;  
+            case 'F':
+            case 'f':
+                printf("Esquerda / Baixo\n");
+            break;  
+            case 'G':
+            case 'g':
+                printf("Direita / Cima\n");
+            break;  
+            case 'H':
+            case 'h':
+                printf("Esquerda / Baixo\n");
+            break;  
+        default:
+            printf("Opção imválida!\n");
+            return;
+        }
     }
-}
-void esquerda(int casas)
-{
-    if (casas > 0)
-    { 
-        printf("Esquerda \n");
-        esquerda(casas - 1);
-    }
-}
-void baixo(int casas)
-{
-    if (casas > 0)
-    { 
-        printf("Baixo \n");
-        baixo(casas - 1);
-    }
-}
-void cima(int casas)
-{
-    if (casas > 0)
-    { 
-        printf("Cima \n");
-        cima(casas - 1);
-    }
-}
-void direitacima(int casas)
-{
-    if (casas > 0)
-    { 
-        printf("Direita / Cima \n");
-        direitacima(casas - 1);
-    }
-}void esquerdacima(int casas)
-{
-    if (casas > 0)
-    { 
-        printf("Esquerda / Cima \n");
-        esquerdacima(casas - 1);
-    }
-}void direitabaixo(int casas)
-{
-    if (casas > 0)
-    { 
-        printf("Direita / Baixo \n");
-        direitabaixo(casas - 1);
-    }
-}void esquerdabaixo(int casas)
-{
-    if (casas > 0)
-    { 
-        printf("Esquerda / Baixo \n");
-        esquerdabaixo(casas - 1);
-    }
-}
+}    
 
 int main() {
 
@@ -90,39 +71,17 @@ switch (opcao)
 {
 case 1: // movimento da Torre.
 
-    printf("\n** Direção do movimento **\n");
+    printf("\n** Direção do movimento (Torre) **\n");
     printf("D. Direita\n");
     printf("E. Esquerda\n");
     printf("C. Cima\n");
     printf("B. Baixo\n");
     printf("\nDigite a direção: ");
     scanf(" %c", &direcao);
-    printf("\nDigite a quantidade de movimento da Torre: ");
-    scanf("%d", &torre);    
+    printf("\nDigite a quantidade de casas: ");
+    scanf("%d", &torre);   
+    mover(torre, direcao);
 
-    switch (direcao) // direção e quantidade de movimento da Torre.
-    {
-    case 'D':
-    case 'd':
-        direita(torre); // define a direção da Torre através da recursividade.
-    break;
-    case 'E':
-    case 'e':
-        esquerda(torre); // define a direção/movimento da Torre através da recursividade.
-    break;
-    case 'C':
-    case 'c':
-        cima(torre); // define a direção/movimento da Torre através da recursividade.
-    break;
-    case 'B':
-    case 'b':
-        baixo(torre); // define a direção/movimento da Torre através da recursividade.
-    break;
-    default:
-        printf("Direção inválida\n");
-    break;
-    }
-break;
 case 2: // movimento do Bispo para diagonal.
 
     printf("\n** Direção do movimento **\n");
@@ -184,58 +143,21 @@ case 2: // movimento do Bispo para diagonal.
 break;
 case 3: // movimento da Rainha.
 
-    printf("\n** Direção do movimento **\n");
+    printf("\n** Direção do movimento (Rainha) **\n");
     printf("D. Direita\n");
     printf("E. Esquerda\n");
     printf("C. Cima\n");
     printf("B. Baixo\n");
-    printf("A. Direita/Baixo\n");
-    printf("F. Esquerda/Baixo\n");
-    printf("G. Direita/Cima\n");
-    printf("H. Esquerda/Cima\n");
+    printf("A. Direita/Baixo\n"); // simula a diagonal.
+    printf("F. Esquerda/Baixo\n"); // simula a diagonal.
+    printf("G. Direita/Cima\n"); // simula a diagonal.
+    printf("H. Esquerda/Cima\n"); // simula a diagonal.
     printf("\nDigite a direção: ");
     scanf(" %c", &direcao);
-    printf("\nDigite a quantidade de movimento da Rainha: ");
-    scanf("%d", &rainha);    
+    printf("\nDigite a quantidade de casas: ");
+    scanf("%d", &rainha);
+    mover(rainha, direcao); // recursividade
 
-    switch (direcao) // direção e a quantidade de movimento da Rainha.
-    {
-    case 'D':
-    case 'd':
-    direita(rainha); // define a direção da Rainha através da recursividade.
-    break;
-    case 'E':
-    case 'e':
-    esquerda(rainha); // define a direção da Rainha através da recursividade.
-    break;
-    case 'C':
-    case 'c':
-    cima(rainha); // define a direção da Rainha através da recursividade.
-    break;    
-    case 'B':
-    case 'b':
-    baixo(rainha); // define a direção da Rainha através da recursividade.
-    break;
-    case 'A':
-    case 'a':
-    direitabaixo(rainha); // define a direção da Rainha através da recursividade.
-    break;
-    case 'F':
-    case 'f':
-    esquerdabaixo(rainha); // define a direção da Rainha através da recursividade.
-    break;
-    case 'G':
-    case 'g':
-    direitacima(rainha); // define a direção da Rainha através da recursividade.
-    break;
-    case 'H':
-    case 'h':
-    esquerdacima(rainha); // define a direção da Rainha através da recursividade.
-    default:
-        printf("Direção inválida\n");
-    break;
-    }
-break;
 case 4: // movimento em L do cavalo.
 
     printf("\n** Direção do movimento **\n");
