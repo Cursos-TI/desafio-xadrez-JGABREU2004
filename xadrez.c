@@ -24,35 +24,37 @@ void mover(int casas, char direcao) {
 }    
 // usando a recursividade para mover o Bispo.
 void moverBispo(int linha, int coluna, int casas, char direcao) {
-    if (casas == 0)
-    // usando loops aninhados para mover o Bispo da diagonal.
+    // usando loops aninhados para mover o Bispo na diagonal.
     for (int i = 0; i < 1; i++) { //vertical
-        for (int j = 1; j < 1; j++) { // horizontal
-            if (direcao == 'A' || direcao == 'a') { //Direita / Baixo
-                linha++;
-                coluna++;
-            } else if (direcao == 'A' || direcao == 'a') { //Direita / Baixo
-                linha++;
-                coluna++;
-            } 
-
-
-
-
-
+        for (int j = 0; j < 1; j++) { // horizontal
+            if (direcao == 'A' || direcao == 'a') { 
+                linha++; // direita
+                coluna++; // baixo
+            } else if (direcao == 'F' || direcao == 'f') {
+                linha++; // esquerda
+                coluna--; // baixo
+            } else if (direcao == 'G' || direcao == 'g') {
+                linha--; // direita
+                coluna++; // cima
+            }  else if (direcao == 'H' || direcao == 'h') {
+                linha--; // esquerda
+                coluna--; // cima
+            } else {
+                printf("Direção inválida!");
+            }
         }
-
-    }
-
-
+        moverBispo(linha, coluna, casas, direcao);
+    } if (linha < 0 || linha > 7 || coluna < 0 || coluna > 7) // verifica se a movimentação está dentro do tabuleiro
+    {
+        printf ("Movimento fora do tabuleiro, reinicia o movimento!\n");
+    }    
 }
-
 int main() {
 
     // criando as variáveis do jogo.
 
     int torre, bispo, rainha, cavalo;
-    int opcao, i;
+    int opcao, i, linha, coluna, casas;
     char direcao;
 
     // Menu interativo.
@@ -85,6 +87,11 @@ case 1: // movimento da Torre.
 break;
 case 2: // movimento do Bispo para diagonal.
 
+    printf("Movimento inicial do Bispo\n");
+    printf("\nDigite a linha inicial: ");
+    scanf("%d", &linha);
+    printf("Digite a coluna inicial: ");
+    scanf("%d", &coluna);
     printf("\n** Direção do movimento (Bispo) **\n");
     printf("A. Direita/Baixo\n");
     printf("F. Esquerda/Baixo\n");
@@ -93,54 +100,9 @@ case 2: // movimento do Bispo para diagonal.
     printf("\nDigite a direção: ");
     scanf(" %c", &direcao);
     printf("\nDigite a quantidade de movimento do Bispo: ");
-    scanf("%d", &bispo);    
-
-    switch (direcao) // direção e quantidade de movimento do Bispo.
-    {
-    case 'A':
-    case 'a':
-        i = 0; // definindo o valor de i.
-
-        while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
-    { 
-            printf("Direita / Baixo\n"); // imprime a direção do movimento.
-            i++;
-    }
-    break;
-    case 'F':
-    case 'f':
-        i = 0; // definindo o valor de i.
-
-        while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
-    { 
-            printf("Esquerda / Baixo\n"); // imprime a direção do movimento.
-            i++;
-    }
-    break;
-    case 'G':
-    case 'g':
-        i = 0; // definindo o valor de i.
-
-        while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
-    { 
-            printf("Direita / Cima\n"); // imprime a direção do movimento.
-            i++;
-    }
-    break;
-    case 'H':
-    case 'h':
-        i = 0; // definindo o valor de i.
-
-        while (i < bispo) // comparação, quando a condição for falsa finaliza o loop.
-    { 
-            printf("Esquerda / Cima\n"); // imprime a direção do movimento.
-            i++;
-    }
-    break;
-    default:
-        printf("Direção inválida\n");
-    break;
-    }
+    scanf("%d", &casas);
+    printf("\nIniciando o movimento\n");
+    printf("Posição inicial, linha %d e coluna %d\n", linha, coluna);
 break;
 case 3: // movimento da Rainha.
 
