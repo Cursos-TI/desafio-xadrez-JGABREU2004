@@ -24,30 +24,36 @@ void mover(int casas, char direcao) {
 }    
 // usando a recursividade para mover o Bispo.
 void moverBispo(int linha, int coluna, int casas, char direcao) {
+    if (casas <= 0) return;
+    if (linha < 0 || linha > 7 || coluna < 0 || coluna > 7) // verifica se a movimentação está dentro do tabuleiro
+    {
+        printf ("Movimento fora do tabuleiro!\n");
+    }  return;
     // usando loops aninhados para mover o Bispo na diagonal.
     for (int i = 0; i < 1; i++) { //vertical
         for (int j = 0; j < 1; j++) { // horizontal
             if (direcao == 'A' || direcao == 'a') { 
                 linha++; // direita
                 coluna++; // baixo
+                printf("Direita / Baixo => Linha %d, Coluna %d\n", linha, coluna);
             } else if (direcao == 'F' || direcao == 'f') {
                 linha++; // esquerda
                 coluna--; // baixo
+                printf("Esquerda / Baixo => Linha %d, Coluna %d\n", linha, coluna);
             } else if (direcao == 'G' || direcao == 'g') {
                 linha--; // direita
                 coluna++; // cima
+                printf("Direita / Cima => Linha %d, Coluna %d\n", linha, coluna);
             }  else if (direcao == 'H' || direcao == 'h') {
                 linha--; // esquerda
                 coluna--; // cima
+                printf("Esquerda / Cima => Linha %d, Coluna %d\n", linha, coluna);
             } else {
-                printf("Direção inválida!");
+                printf("Direção inválida!"); // Direção tem que estar entre A, F, G e H.
             }
         }
-        moverBispo(linha, coluna, casas, direcao);
-    } if (linha < 0 || linha > 7 || coluna < 0 || coluna > 7) // verifica se a movimentação está dentro do tabuleiro
-    {
-        printf ("Movimento fora do tabuleiro, reinicia o movimento!\n");
-    }    
+    } 
+    moverBispo(linha, coluna, casas - 1, direcao);  // inicia a recursividade
 }
 int main() {
 
@@ -67,13 +73,9 @@ int main() {
     printf("4. Cavalo\n");
     printf("\nDigite a opção: ");
     scanf("%d", &opcao);
-
-    // Colocando os movimentos e loops dentro do jogo.
-
-switch (opcao)
-{
+    
+switch (opcao) { // Colocando os movimentos e loops dentro do jogo.
 case 1: // movimento da Torre.
-
     printf("\n** Direção do movimento (Torre) **\n");
     printf("D. Direita\n");
     printf("E. Esquerda\n");
@@ -83,10 +85,9 @@ case 1: // movimento da Torre.
     scanf(" %c", &direcao);
     printf("\nDigite a quantidade de casas: ");
     scanf("%d", &torre);   
-    mover(torre, direcao);
+    mover(torre, direcao); // iniciando a recursividade.
 break;
 case 2: // movimento do Bispo para diagonal.
-
     printf("Movimento inicial do Bispo\n");
     printf("\nDigite a linha inicial: ");
     scanf("%d", &linha);
@@ -102,10 +103,10 @@ case 2: // movimento do Bispo para diagonal.
     printf("\nDigite a quantidade de movimento do Bispo: ");
     scanf("%d", &casas);
     printf("\nIniciando o movimento\n");
-    printf("Posição inicial, linha %d e coluna %d\n", linha, coluna);
+    printf("\nPosição inicial, linha %d e coluna %d\n", linha, coluna);
+    moverBispo(linha, coluna, casas, direcao); // iniciando a recursividade.
 break;
 case 3: // movimento da Rainha.
-
     printf("\n** Direção do movimento (Rainha) **\n");
     printf("D. Direita\n");
     printf("E. Esquerda\n");
@@ -119,10 +120,9 @@ case 3: // movimento da Rainha.
     scanf(" %c", &direcao);
     printf("\nDigite a quantidade de casas: ");
     scanf("%d", &rainha);
-    mover(rainha, direcao); // recursividade
+    mover(rainha, direcao); // iniciando a recursividade
 break;
 case 4: // movimento em L do cavalo.
-
     printf("\n** Direção do movimento **\n");
     printf("D. Cima/Direita\n");
     printf("E. Cima/Esquerda\n");
